@@ -1,0 +1,33 @@
+<div class="fb-item">
+  <div class="first-section-wrapper d-flex">
+
+    <div class="gravatar" *ngFor="let loop of arrayOne(loops)">
+      <ngx-skeleton-loader *ngIf="card"
+        [count]="loop ?? 1"
+        appearance="circle"
+        [theme]="{
+          width: '165px',
+          height: '150px', 'border-radius': '10px'
+        }">
+      </ngx-skeleton-loader>
+      <div class="gravatar-title" *ngIf="useTitles">
+        <div>
+          <ngx-skeleton-loader
+            [theme]="{
+              width: '170px', 'border-radius': '0',
+              height: '15px'
+            }">
+          </ngx-skeleton-loader>
+        </div>
+        <div>
+          <ngx-skeleton-loader
+            [theme]="{
+              width: '170px', 'border-radius': '0',
+              height: '15px'
+            }">
+          </ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

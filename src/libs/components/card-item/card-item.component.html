@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+  <div class="item" style="padding: 20px;" *ngFor="let product of bestProducts; let i = index">
+    <div class="mb-r">
+      <div class="card card-cascade wider">
+        <a [routerLink]="['/products/product', product.id]" style="display: flex; justify-content: center;">
+          <div class="view overlay hm-white-slight" style="display: flex; justify-content: center; width: 200px;">
+            <img [src]="product.productImageUrl"
+              class="img-fluid"
+              alt=""
+              width="200px"
+              height="320px"/>
+            <a>
+              <div class="mask waves-effect waves-light" mdbRippleRadius></div>
+            </a>
+          </div>
+        </a>
+        <div class="card-body text-center no-padding">
+          <a href="" class="text-muted" [routerLink]="['/products/product', product.id]" >
+            <h5 style="font-size: large;">{{ product.productCategory }}</h5>
+          </a>
+          <h5 class="card-title">
+            <strong>
+              <a [routerLink]="['/products/product', product.id]" style="font-size: medium;">{{
+                product.productName
+              }}</a>
+            </strong>
+          </h5>
+
+          <p class="card-text" style="width: 200px;">{{ product.productDescription }}</p>
+
+          <div class="card-footer">
+            <span class="left">£ {{ product.productPrice }}</span>
+            <span class="right">
+              <ng-container *ngIf="wishList === true">
+                <a placement="top"
+                  mdbTooltip="Add to Wishlist"
+                  container="body"
+                  (click)="addToWishList(product)">
+                  <i class="fa fa-heart"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="shoppingList === true">
+                <a placement="top"
+                  mdbTooltip="Add to Cart"
+                  container="body"
+                  (click)="addToShoppingCart(product)">
+                  <i class="fa fa-shopping-cart"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="viewDetais === true">
+                <a placement="top"
+                  mdbTooltip="View Details"
+                  container="body"
+                  [routerLink]="['/products/product/', product.id]">
+                  <i class="fa fa-eye"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="removeItem === true">
+                <a placement="top"
+                  mdbTooltip="Remove Item"
+                  container="body"
+                  (click)="removeItemFromList(product)">
+                  <i class="fa fa-trash"></i>
+                </a>
+              </ng-container>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="pt-3">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose your brand</mat-label>
+        <mat-select (selectionChange)="onChooseBrand($event.value)">
+          <mat-option *ngFor="let brand of brands" [value]="brand">
+            {{brand}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row" *ngIf="bestProducts.length > 0; else noProductsFound">
+    <div class="col">
+      <app-cfp-card-item [bestProducts]="bestProducts" [wishList]="true" [viewDetais]="true"
+        [shoppingList]="true" (shouldAddToWishList)="addItemToWishList($event)"
+        (shouldAddToShoppingCart)="addItemToShoppingCart($event)">
+      </app-cfp-card-item>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProductsFound>
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <app-cfp-no-products-found
+        [title]="'No Products Found'"
+        [description]="'Please, contact admin to add new products.'">
+      </app-cfp-no-products-found>
+    </div>
+  </div>
+</ng-template>

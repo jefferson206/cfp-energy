@@ -1,0 +1,19 @@
+<div class="pt-3">
+  <div class="row">
+    <div class="col" *ngIf="bestProducts.length > 0; else noProductsFound">
+      <app-cfp-card-item [bestProducts]="bestProducts" [viewDetais]="true"
+        [removeItem]="true" (shouldRemoveItem)="removeItemFromList($event)">
+      </app-cfp-card-item>
+    </div>
+
+    <ng-template #noProductsFound>
+      <div class="col d-flex justify-content-center">
+        <app-cfp-no-products-found
+          [title]="'No Favourite Products Found'"
+          [description]="'Please, choose your favourite products'">
+        </app-cfp-no-products-found>
+      </div>
+    </ng-template>
+  </div>
+
+</div>

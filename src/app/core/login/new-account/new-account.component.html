@@ -1,0 +1,64 @@
+<div class="row pt-3">
+  <!-- [formGroup]="form"  -->
+  <div  class="container" style="width: 25rem;">
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <i class="fa fa-sign-in fa-3x" aria-hidden="true" style="margin-right: 15px;"></i>
+        <h1 class="mt-2">REGISTER</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Username" [formControl]="getFormControl('username')">
+          <mat-error  *ngIf="getFormControl('username').hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="getFormControl('email')" placeholder="Ex. pat@example.com">
+          <mat-error *ngIf="getFormControl('email').hasError('email') && !getFormControl('email').hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error  *ngIf="getFormControl('email').hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" [formControl]="getFormControl('password')"
+          [type]="hidePassword ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+            {{hidePassword ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+          <mat-error  *ngIf="getFormControl('username').hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12 pb-2">
+        <div class="w-100" appearance="fill">
+          <mat-checkbox [formControl]="getFormControl('isAdmin')">User as Admin</mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        <button mat-raised-button color="primary" (click)="closeDialog()">
+          <i class="fa fa-times pr-2" aria-hidden="true"></i>Close
+        </button>
+        <button mat-raised-button color="success" style="margin-left: 5px;" (click)="createAccount()">Create account
+          <i class="fa fa-check pl-2" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

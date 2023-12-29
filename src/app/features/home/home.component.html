@@ -1,0 +1,28 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <app-cfp-carousel></app-cfp-carousel>
+    </div>
+  </div>
+  <div class="container pt-3">
+    <div class="row">
+      <div class="col col-md-6">
+        <blockquote class="blockquote float-left bq-primary m-0">
+          <h3 class="bq-title">Best Sellers</h3>
+        </blockquote>
+      </div>
+      <div class="col col-md-6 justify-content-end align-items-center d-flex">
+        <button mat-raised-button color="primary" [routerLink]="['/products']" >See more</button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col" *ngIf="loading;" class="m-3 d-flex justify-content-center">
+      <app-cfp-skeleton [loops]="6"></app-cfp-skeleton>
+    </div>
+    <app-cfp-best-products (shouldLoading)="getHowManyProducts($event)"></app-cfp-best-products>
+  </div>
+</div>
+
+
+

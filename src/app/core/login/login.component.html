@@ -1,0 +1,44 @@
+<div class="container pt-3" style="width: 25rem;">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <i class="fa fa-sign-in fa-3x" aria-hidden="true" style="margin-right: 15px;"></i>
+      <h1 class="mt-2">LOGIN</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" [formControl]="getFormControl('username')">
+        <mat-error  *ngIf="getFormControl('username').hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="w-100" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Password" [formControl]="getFormControl('password')"
+        [type]="hidePassword ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+          {{hidePassword ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+        <mat-error  *ngIf="getFormControl('username').hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
+      <button mat-raised-button color="success" style="margin-left: 5px;"
+        (click)="openDialog()">New account
+      </button>
+    </div>
+  </div>
+</div>
+

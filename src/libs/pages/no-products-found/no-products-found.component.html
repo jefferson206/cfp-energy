@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="error-template">
+      <h1>Oops!</h1>
+      <h2>{{title}}</h2>
+      <div class="error-details">{{description}}</div>
+      <div class="error-actions">
+        <button mat-raised-button color="primary" [routerLink]="['/']">Take Me Home</button>
+        <button mat-raised-button color="success" style="margin-left: 5px;"
+          [routerLink]="['/products']">Our Products
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

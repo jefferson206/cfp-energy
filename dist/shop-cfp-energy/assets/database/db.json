@@ -1,0 +1,81 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Jefferson",
+      "email": "jeffersonrmendonca@hotmail.com",
+      "password": "123456",
+      "isAdmin": true,
+      "wishList": [
+        1,
+        2
+      ],
+      "shoppingList": [
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "username": "Test",
+      "email": "abc@abc.com",
+      "password": "123456",
+      "isAdmin": false,
+      "wishList": [],
+      "shoppingList": [
+        1
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "productImageUrl": "./assets/images/carousel/iphone_box.jpg",
+      "productCategory": "Iphone",
+      "productName": "Iphone 15 PRO",
+      "productDescription": "You can choose a payment option that works for you, pay less with a trade‑in, connect your new iPhone to your carrier, and get set up quickly. You can also chat with a Specialist anytime.",
+      "productPrice": "999.99",
+      "stock": 100,
+      "lastUpdate": 1703880236632
+    },
+    {
+      "id": 2,
+      "productImageUrl": "./assets/images/carousel/phone_one_plus.jpg",
+      "productCategory": "Google",
+      "productName": "Pixel Fold",
+      "productDescription": "The only foldable engineered by Google",
+      "productPrice": "1300.97",
+      "stock": 15,
+      "lastUpdate": "2023-12-28"
+    },
+    {
+      "id": 3,
+      "productImageUrl": "./assets/images/carousel/phones_google.jpg",
+      "productCategory": "Google",
+      "productName": "Pixel PRO",
+      "productDescription": "Fingerprint (under display, optical), accelerometer, gyro, proximity, compass, barometer, thermometer (skin temperature)",
+      "productPrice": "1311.45",
+      "stock": 7,
+      "lastUpdate": 1703874857445
+    },
+    {
+      "id": 4,
+      "productImageUrl": "./assets/images/carousel/phone_google.jpg",
+      "productCategory": "Google",
+      "productName": "Pixel 5",
+      "productDescription": "Fingerprint (rear-mounted), accelerometer, gyro, proximity, compass, barometer",
+      "productPrice": " 234.99 ",
+      "stock": 2,
+      "lastUpdate": 1703881065813
+    },
+    {
+      "id": 5,
+      "productImageUrl": "./assets/images/carousel/phones.jpg",
+      "productCategory": "Iphone ",
+      "productName": "teste",
+      "productDescription": "At the heart of iPhone SE you'll find the same superpowerful A15 Bionic chip that's in iPhone 13.",
+      "productPrice": " 123.23 ",
+      "stock": 123,
+      "lastUpdate": 1703881090581
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col">
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Product name" [formControl]="getFormControl('productName')">
+          <mat-error  *ngIf="getFormControl('productName').hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Category</mat-label>
+          <input matInput placeholder="Product category" [formControl]="getFormControl('productCategory')">
+          <mat-error  *ngIf="getFormControl('productCategory').hasError('required')">
+            Category is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Product description" rows="5"
+            [formControl]="getFormControl('productDescription')">
+          </textarea>
+          <mat-error  *ngIf="getFormControl('productDescription').hasError('required')">
+            Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Image URL</mat-label>
+          <input matInput placeholder="Product image URL" [formControl]="getFormControl('productImageUrl')">
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Price</mat-label>
+          <span matPrefix>£ &nbsp;</span>
+          <input matInput placeholder="Product price"
+            mask="0.00 || 00.00 || 000.00 || 0,000.00 || 00,000.00 || 000,000.00 || 0,000,000.00"
+            [dropSpecialCharacters]="false"
+            [formControl]="getFormControl('productPrice')">
+          <mat-error  *ngIf="getFormControl('productPrice').hasError('required')">
+            Price is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100" appearance="fill">
+          <mat-label>Stock</mat-label>
+          <input matInput placeholder="Product stock" type="number"
+            [formControl]="getFormControl('stock')">
+          <mat-error  *ngIf="getFormControl('stock').hasError('required')">
+            Stock is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button mat-raised-button color="primary" *ngIf="form.value.id !== null"
+          (click)="updateProduct()">
+          Update product
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button>
+        <button mat-raised-button color="success" *ngIf="form.value.id === null"
+          style="margin-left: 5px;" (click)="createProduct()">New product
+          <i class="fa fa-plus" aria-hidden="true" ></i>
+        </button>
+        <button mat-raised-button color="warn" *ngIf="form.value.id !== null"
+          style="margin-left: 5px;" (click)="deleteProduct()">Delete product
+          <i class="fa fa-trash"></i>
+        </button>
+        <button mat-raised-button color="primary" *ngIf="form.value.id !== null"
+          style="margin-left: 5px;" (click)="clearForm()">Clear
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="col">
+      <table mat-table [dataSource]="bestProducts" class="mat-elevation-z8 w-100">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productName">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.productName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productCategory">
+          <th mat-header-cell *matHeaderCellDef> Category </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.productCategory}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="productPrice">
+          <th mat-header-cell *matHeaderCellDef> Cost </th>
+          <td mat-cell *matCellDef="let transaction">£ {{ transaction.productPrice }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="stock">
+          <th mat-header-cell *matHeaderCellDef> Stock </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.stock}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastUpdate">
+          <th mat-header-cell *matHeaderCellDef> Last update </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.lastUpdate | date: 'yyyy-MM-dd'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          (click)="getRecord(row)" style="cursor: pointer;">
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

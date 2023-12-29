@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div class="container">
+      <div class="row justify-content-center">
+        <button mat-icon-button class="col col-12 col-sm-3 col-md-2 menu-btn"
+          (click)="navigateTo('/')">Home
+        </button>
+        <button mat-icon-button class="col col-12 col-sm-3 col-md-2 menu-btn"
+          (click)="navigateTo('products')">Our products
+        </button>
+        <button mat-icon-button class="col col-12 col-sm-3 col-md-2 menu-btn"
+          (click)="navigateTo('/products/wish-list')">Wish list
+        </button>
+        <button mat-icon-button class="col col-12 col-sm-3 col-md-2 menu-btn"
+          (click)="navigateTo('/products/shopping')">Shopping
+        </button>
+        <button *ngIf="getTokenAdmin()" mat-icon-button
+          class="col col-12 col-sm-3 col-md-2 menu-btn"
+          (click)="navigateTo('/products/crud-products')">New Product
+        </button>
+        <button mat-icon-button class="col col-12 col-sm-3 col-md-2 menu-btn"
+          (click)="navigateTo('/login')">Logout
+        </button>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
