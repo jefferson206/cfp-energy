@@ -64,7 +64,6 @@ export class ProductsService extends BasicCrudService<Product> {
   removeProductFromWishList(product: any) {
     const TOKEN: User = JSON.parse(String(localStorage.getItem('token')));
     const index: any = TOKEN.wishList?.indexOf(product.id);
-    console.log(index, TOKEN)
     if (index !== -1) {
       TOKEN.wishList?.splice(index, 1);
       this._updateToken(TOKEN);
