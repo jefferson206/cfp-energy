@@ -46,6 +46,7 @@ export class OurProductsComponent implements OnInit {
 
   private _createSelectFilter(products: Product[]): void {
     this.brands.push(...products.map(product => String(product.productCategory)));
+    this.brands = this.brands.filter((value, index) => this.brands.indexOf(value) === index);
   }
 
   addItemToWishList(product: Product): void {
