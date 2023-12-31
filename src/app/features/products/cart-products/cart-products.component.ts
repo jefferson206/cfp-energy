@@ -34,9 +34,13 @@ export class CartProductsComponent implements AfterViewInit {
     ).subscribe();
   }
 
-  getTotalCost() {
-    return this.bestProducts.map(element => element.productPrice)
-      .reduce((acc, value) => acc + value, 0);
+ getTotalCost() {
+    const TOTAL_PRICE = this.bestProducts.map(element => {
+      return Number(element.productPrice.replace(/[^0-9]/g, ''));
+    }).reduce((acc, value) => acc + value, 0);
+    const FIRST = TOTAL_PRICE.toString().slice(0, -2);
+    const LAST = TOTAL_PRICE.toString().slice(-2);
+    return `${FIRST}.${LAST}`;
   }
 
   removeItemFromList(product: Product) {
